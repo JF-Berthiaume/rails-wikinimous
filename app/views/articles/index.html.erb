@@ -1,0 +1,30 @@
+<div class="container mt-5 pt-4">
+  <div class="neo-toolbar shadow-lg">
+    <h1 class="neo-glitch-title">OPERATIONS::LOG_ALPHA</h1>
+
+    <div class="ms-auto">
+      <%= link_to new_article_path, class: "neo-btn" do %>
+        [+] NEW_ENTRY
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @articles.each do |article| %>
+      <div class="col-12 mb-4">
+        <%= link_to article_path(article), class: "text-decoration-none" do %>
+          <div class="neo-article-card">
+            <div class="neo-article-label">INTEL_NODE_<%= article.id %></div>
+            <h2 class="neo-article-title"><%= article.title %></h2>
+            <p class="neo-article-preview">
+              <%= truncate(article.content, length: 180) %>
+            </p>
+            <div class="mt-2 small opacity-50">
+              SECURE_LINK // STAMP: <%= article.created_at.strftime("%H:%M") %> ZULU
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="container mt-5 pt-4">
+  <div class="neo-show-card p-5">
+
+    <div class="d-flex align-items-center mb-5 pb-3 neo-toolbar">
+      <div class="neo-back-link-container me-auto">
+        <%= link_to articles_path, class: "neo-back-link" do %>
+          <i class="fa-solid fa-arrow-left me-2"></i> TERMINAL :: RETOUR
+        <% end %>
+      </div>
+
+      <div class="neo-action-group d-flex align-items-center">
+        <%= link_to edit_article_path(@article), class: "neo-btn me-3" do %>
+          <i class="fa-solid fa-pen-to-square me-2"></i> ÉDITER
+        <% end %>
+        <%= link_to article_path(@article),
+            data: { turbo_method: :delete, turbo_confirm: "CONFIRMER SUPPRESSION SYSTÈME ?" },
+            class: "neo-btn neo-btn-danger" do %>
+          <i class="fa-solid fa-trash"></i>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="neo-article-header mb-5">
+      <div class="neo-glitch-container shadow">
+        <h1 class="neo-glitch-title" data-text="<%= @article.title %>">
+          <%= @article.title %>
+        </h1>
+        <div class="mt-3 opacity-50 small font-monospace">
+          [ ID: <%= @article.id %> ] :: [ SYSTÈME: Wikinimous ] :: [ TIMESTAMP: <%= @article.created_at.strftime("%Y.%m.%d / %H:%M") %> ]
+        </div>
+      </div>
+    </div>
+
+    <div class="neo-article-body shadow">
+      <span class="neo-data-label">[ DATA_BLOCK_DECRYPTED ]</span>
+      <div class="article-text mt-4">
+        <%= @article.content %>
+      </div>
+    </div>
+
+  </div>
+</div>

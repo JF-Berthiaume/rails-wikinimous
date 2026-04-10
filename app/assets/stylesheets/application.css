@@ -1,10 +1,102 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+:root {
+  --nv-bg: #030a04;        /* Fond noir-vert profond */
+  --nv-phosphor: #00ff66;  /* Vert phosphore intense */
+  --nv-dim: #003314;       /* Vert sombre pour les structures */
+  --nv-text: #aaffcc;      /* Texte clair haute lisibilité */
+  --nv-glow: 0 0 12px rgba(0, 255, 102, 0.3);
+}
+
+body {
+  background-color: var(--nv-bg);
+  color: var(--nv-text);
+  font-family: 'Courier New', monospace;
+  /* Effet de scanlines de vision nocturne */
+  background-image: linear-gradient(rgba(0, 255, 102, 0.03) 50%, transparent 50%);
+  background-size: 100% 4px;
+}
+
+/* --- TOOLBAR TACTIQUE --- */
+.neo-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: var(--nv-dim);
+  border: 1px solid var(--nv-phosphor);
+  box-shadow: var(--nv-glow);
+  margin-bottom: 3rem;
+}
+
+.neo-glitch-title {
+  color: var(--nv-phosphor);
+  font-size: 1.8rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin: 0 !important;
+}
+
+/* --- BOUTON D'EXTRACTION --- */
+.neo-btn {
+  background: var(--nv-phosphor);
+  color: var(--nv-bg) !important;
+  font-weight: 900;
+  padding: 12px 24px !important;
+  border: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  transition: 0.2s;
+  box-shadow: 0 0 15px rgba(0, 255, 102, 0.5);
+}
+
+.neo-btn:hover {
+  background: #fff;
+  box-shadow: 0 0 25px #fff;
+}
+
+/* --- CARTES DE RENSEIGNEMENT (INDEX) --- */
+.neo-article-card {
+  background: rgba(0, 51, 20, 0.4);
+  border: 1px solid var(--nv-phosphor);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  transition: 0.3s;
+}
+
+.neo-article-card:hover {
+  background: rgba(0, 255, 102, 0.05);
+  box-shadow: var(--nv-glow);
+  transform: translateX(5px);
+}
+
+.neo-article-label {
+  display: inline-block;
+  background: var(--nv-phosphor);
+  color: var(--nv-bg);
+  font-size: 0.65rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  margin-bottom: 15px;
+}
+
+.neo-article-title {
+  color: var(--nv-phosphor);
+  font-size: 1.5rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--nv-dim);
+  padding-bottom: 8px;
+}
+
+.neo-article-preview {
+  color: var(--nv-text);
+  opacity: 0.8;
+  margin-top: 1rem;
+}
+
+/* On force tous les liens à être verts pour éviter le bleu Bootstrap */
+a {
+  color: var(--nv-phosphor);
+  text-decoration: none;
+}
